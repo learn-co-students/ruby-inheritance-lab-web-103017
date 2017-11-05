@@ -8,6 +8,10 @@ steve = Student.new
 steve.first_name = "Steve"
 steve.last_name = "Jobs"
 
+connie = Student.new
+connie.first_name = "Connie"
+connie.last_name = "Wang"
+
 avi = Teacher.new
 avi.first_name = "Avi"
 avi.last_name = "Flombaum"
@@ -16,5 +20,21 @@ avi.last_name = "Flombaum"
 some_knowledge = avi.teach 
 
 steve.learn(some_knowledge)
+steve.learn(avi.teach)
 
-puts "Steve just learned this important knowledge: '#{steve.knowledge.first}' from Avi"
+connie.learn(some_knowledge)
+connie.learn(avi.teach)
+
+steve_knowledge = []
+steve.knowledge.each do |knowledge|
+  steve_knowledge << knowledge
+end
+
+puts "Steve just learned this important knowledge: #{steve_knowledge.join(", ")} from Avi"
+
+# jim = User.new
+# jim.first_name = "Jim"
+# jim.last_name = "Beans"
+
+# jim.learn(some_knowledge)
+# learn method not defined for User class
